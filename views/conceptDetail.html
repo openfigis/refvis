@@ -1,0 +1,202 @@
+<div class="refvis-concept-result" id="refvis-concept-result">
+	<div class="refvis-concept-result-wide">
+		<div class="refvis-source-wrapper">
+			&nbsp;&nbsp;Source: <span class="refvis-clickable-item"><a href="{{xml}}" target="_blank" class="refvis_link_other">XML</a></span> - 
+			<span class="refvis-clickable-item"><a href="{{json}}" target="_blank" class="refvis_link_other">JSON</a></span>
+		</div>
+	</div>
+	<div class="refvis-concept-result-left">
+		<div class="refvis-concept-result-entry" ng-if="concept.multilingualName.default.length > 0">
+			<span class="refvis-concept-result-label-small">Concept:</span> 
+			<span class="refvis-concept-result-value-small">{{conceptType}}</span>
+			<br /><br />
+			<span class="refvis-concept-result-label-big">Name:</span> 
+			<span class="refvis-concept-result-value-big">{{concept.multilingualName.default}}</span>
+			<span class="refvis-concept-result-mini-label" ng-show="isNotEmpty(concept.multilingualName.translations)" id="refvis-name-translations">&nbsp;Show Translations
+				<script>
+					$("#refvis-name-translations").click(function () {
+						if ( $( "#refvis-concept-result-value-multilingualName-translations" ).is( ":hidden" ) ) {
+						    $( "#refvis-concept-result-value-multilingualName-translations" ).slideDown( "slow" );
+						    $(this).text("Hide Translations");
+						} else {
+							$( "#refvis-concept-result-value-multilingualName-translations" ).slideUp( "slow" );
+							$(this).text("Show Translations");
+						}
+					});
+				</script>
+			</span>
+			<div class="refvis-concept-result-value-big" id="refvis-concept-result-value-multilingualName-translations" ng-show="isNotEmpty(concept.multilingualName.translations)">
+				<div ng-if="concept.multilingualName.translations.en.length > 0" class="refvis-translation-container">
+					<span class="refvis-concept-result-label">English:</span> 
+					<span class="refvis-concept-result-value">{{concept.multilingualName.translations.en}}</span>
+				</div>
+				<div ng-if="concept.multilingualName.translations.fr.length > 0" class="refvis-translation-container">
+					<span class="refvis-concept-result-label">French: </span> 
+					<span class="refvis-concept-result-value">{{concept.multilingualName.translations.fr}}</span> 
+				</div>
+				<div ng-if="concept.multilingualName.translations.es.length > 0" class="refvis-translation-container">
+					<span class="refvis-concept-result-label">Spanish:  </span> 
+					<span class="refvis-concept-result-value">{{concept.multilingualName.translations.es}} </span> 
+				</div>
+				<div ng-if="concept.multilingualName.translations.ar.length > 0" class="refvis-translation-container">
+					<span class="refvis-concept-result-label">Arabic:  </span> 
+					<span class="refvis-concept-result-value">{{concept.multilingualName.translations.ar}} </span> 
+				</div>
+				<div ng-if="concept.multilingualName.translations.ru.length > 0" class="refvis-translation-container">
+					<span class="refvis-concept-result-label">Russian:  </span> 
+					<span class="refvis-concept-result-value">{{concept.multilingualName.translations.ru}} </span> 
+				</div>
+				<div ng-if="concept.multilingualName.translations.zh.length > 0" class="refvis-translation-container">
+					<span class="refvis-concept-result-label">Chinese:  </span> 
+					<span class="refvis-concept-result-value">{{concept.multilingualName.translations.zh}} </span> 
+				</div>
+			</div>
+		</div>
+		<div class="refvis-concept-result-entry" ng-if="concept.multilingualLongName.default.length > 0">
+			<span class="refvis-concept-result-label-big">Long Name:</span> 
+			<span class="refvis-concept-result-value-big">{{concept.multilingualLongName.default}}</span>
+			<span class="refvis-concept-result-mini-label" ng-show="isNotEmpty(concept.multilingualLongName.translations)" id="refvis-longname-translations">&nbsp;Show Translations
+				<script>
+					$("#refvis-longname-translations").click(function () {
+						if ( $( "#refvis-concept-result-value-multilingualLongName-translations" ).is( ":hidden" ) ) {
+						    $( "#refvis-concept-result-value-multilingualLongName-translations" ).slideDown( "slow" );
+						    $(this).text("Hide Translations");
+						} else {
+							$( "#refvis-concept-result-value-multilingualLongName-translations" ).slideUp( "slow" );
+							$(this).text("Show Translations");
+						}
+					});
+				</script>
+			</span>
+			<div class="refvis-concept-result-value-big" id="refvis-concept-result-value-multilingualLongName-translations" ng-show="isNotEmpty(concept.multilingualLongName.translations)">
+				<div ng-if="concept.multilingualLongName.translations.en.length > 0" class="refvis-translation-container">
+					<span class="refvis-concept-result-label">English:</span> 
+					<span class="refvis-concept-result-value">{{concept.multilingualLongName.translations.en}}</span>
+				</div>
+				<div ng-if="concept.multilingualLongName.translations.fr.length > 0" class="refvis-translation-container">
+					<span class="refvis-concept-result-label">French: </span> 
+					<span class="refvis-concept-result-value">{{concept.multilingualLongName.translations.fr}}</span> 
+				</div>
+				<div ng-if="concept.multilingualLongName.translations.es.length > 0" class="refvis-translation-container">
+					<span class="refvis-concept-result-label">Spanish:  </span> 
+					<span class="refvis-concept-result-value">{{concept.multilingualLongName.translations.es}} </span> 
+				</div>
+				<div ng-if="concept.multilingualLongName.translations.ar.length > 0" class="refvis-translation-container">
+					<span class="refvis-concept-result-label">Arabic:  </span> 
+					<span class="refvis-concept-result-value">{{concept.multilingualLongName.translations.ar}} </span> 
+				</div>
+				<div ng-if="concept.multilingualLongName.translations.ru.length > 0" class="refvis-translation-container">
+					<span class="refvis-concept-result-label">Russian:  </span> 
+					<span class="refvis-concept-result-value">{{concept.multilingualLongName.translations.ru}} </span> 
+				</div>
+				<div ng-if="concept.multilingualLongName.translations.zh.length > 0" class="refvis-translation-container">
+					<span class="refvis-concept-result-label">Chinese:  </span> 
+					<span class="refvis-concept-result-value">{{concept.multilingualLongName.translations.zh}} </span> 
+				</div>
+			</div>
+		</div>
+
+
+
+
+		<div class="refvis-concept-result-entry" ng-if="concept.multilingualOfficialName.default.length > 0">
+			<span class="refvis-concept-result-label-big">Official Name:</span> 
+			<span class="refvis-concept-result-value-big">{{concept.multilingualOfficialName.default}}</span>
+			<span class="refvis-concept-result-mini-label" ng-show="isNotEmpty(concept.multilingualOfficialName.translations)" id="refvis-official-translations">&nbsp;Show Translations
+				<script>
+					$("#refvis-official-translations").click(function () {
+						if ( $( "#refvis-concept-result-value-multilingualOfficialName-translations" ).is( ":hidden" ) ) {
+						    $( "#refvis-concept-result-value-multilingualOfficialName-translations" ).slideDown( "slow" );
+						    $(this).text("Hide Translations");
+						} else {
+							$( "#refvis-concept-result-value-multilingualOfficialName-translations" ).slideUp( "slow" );
+							$(this).text("Show Translations");
+						}
+					});
+				</script>
+			</span>
+			<div class="refvis-concept-result-value-big" id="refvis-concept-result-value-multilingualOfficialName-translations" ng-show="isNotEmpty(concept.multilingualOfficialName.translations)">
+				<div ng-if="concept.multilingualOfficialName.translations.en.length > 0" class="refvis-translation-container">
+					<span class="refvis-concept-result-label">English:</span> 
+					<span class="refvis-concept-result-value">{{concept.multilingualOfficialName.translations.en}}</span>
+				</div>
+				<div ng-if="concept.multilingualOfficialName.translations.fr.length > 0" class="refvis-translation-container">
+					<span class="refvis-concept-result-label">French: </span> 
+					<span class="refvis-concept-result-value">{{concept.multilingualOfficialName.translations.fr}}</span> 
+				</div>
+				<div ng-if="concept.multilingualOfficialName.translations.es.length > 0" class="refvis-translation-container">
+					<span class="refvis-concept-result-label">Spanish:  </span> 
+					<span class="refvis-concept-result-value">{{concept.multilingualOfficialName.translations.es}} </span> 
+				</div>
+				<div ng-if="concept.multilingualOfficialName.translations.ar.length > 0" class="refvis-translation-container">
+					<span class="refvis-concept-result-label">Arabic:  </span> 
+					<span class="refvis-concept-result-value">{{concept.multilingualOfficialName.translations.ar}} </span> 
+				</div>
+				<div ng-if="concept.multilingualOfficialName.translations.ru.length > 0" class="refvis-translation-container">
+					<span class="refvis-concept-result-label">Russian:  </span> 
+					<span class="refvis-concept-result-value">{{concept.multilingualOfficialName.translations.ru}} </span> 
+				</div>
+				<div ng-if="concept.multilingualOfficialName.translations.zh.length > 0" class="refvis-translation-container">
+					<span class="refvis-concept-result-label">Chinese:  </span> 
+					<span class="refvis-concept-result-value">{{concept.multilingualOfficialName.translations.zh}} </span> 
+				</div>
+			</div>
+		</div>
+
+
+		<div class="refvis-concept-result-entry" ng-if="concept.multilingualOfficialName.en.length > 0">
+			<span class="refvis-concept-result-label-big">Official Name:</span> 
+			<span class="refvis-concept-result-value-big">{{concept.multilingualOfficialName.en}}</span>
+		</div>
+		<div class="refvis-concept-result-entry" ng-if="concept.multilingualFullName.en.length > 0">
+			<span class="refvis-concept-result-label-big">Full Name:</span> 
+			<span class="refvis-concept-result-value-big">{{concept.multilingualFullName.en}}</span>
+		</div>
+		<div class="refvis-concept-result-entry" ng-if="concept.scientific_name.length > 0">
+			<span class="refvis-concept-result-label-big">Scientific Name:</span> 
+			<span class="refvis-concept-result-value-big">{{concept.scientific_name}}</span>
+		</div>
+		<div class="refvis-concept-result-entry" ng-if="concept.vessel_name.length > 0">
+			<span class="refvis-concept-result-label-big">Vessel Name:</span> 
+			<span class="refvis-concept-result-value-big">{{concept.vessel_name}}</span>
+		</div>
+		<br />
+		<br />
+		<span class="refvis-concept-result-label-big" ng-if="!!attr.length">Attributes:</span>
+		<div ng-repeat="(key, value) in attr">
+			<div class="refvis-concept-result-entry">&nbsp;&nbsp;&nbsp;<span class="refvis-attr-lbl">{{key}}:</span> <span class="refvis-attr-val">{{value}}</span></div>
+		</div>
+	</div>
+	<div class="refvis-concept-result-right">
+		<div class="refvis-concept-result-parent-container" ng-if="!!parents.length">
+			<span class="refvis-hierarchy-header">Parents:</span>
+				<div ng-repeat="parent in parents" class="refvis-concept-result-parents">
+					<div class="hierarchy-header" ng-if="parent.type">
+						<table width="100%">
+							<tr class="border_bottom">
+								<td class="refvis-td">
+									{{parent.type}}
+									<span style="margin-left: 6px;"><a href="concept/{{parent.link[0].href}}">{{parent.name}}</a></span>
+								</td>
+							</tr>
+						</table>
+					</div>
+				</div>
+		</div>
+		<div class="refvis-concept-result-children-container" ng-class="!!parents.length ? '' : 'refvis-concept-result-children-container-border'" ng-if="!!children.length">
+			<span class="refvis-hierarchy-header">Children:</span>
+			<div ng-repeat="child in children" class="refvis-concept-result-children">
+				<div class="hierarchy-header" ng-if="child.type">
+					<table width="100%">
+						<tr class="border_bottom">
+							<td class="refvis-td">
+								{{child.type}}
+								<span style="margin-left: 6px;"><a href="concept/{{child.link[0].href}}">{{child.name}}</a></span>
+							</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

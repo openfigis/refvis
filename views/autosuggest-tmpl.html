@@ -1,0 +1,17 @@
+<a>
+	<div style="height: 40px; border-bottom: 0.5px dotted;">
+		<div>
+			<span ng-bind-html="match.model.name | typeaheadHighlight:query"></span>
+		</div>
+		<div>
+			<span style="font-size: 12px; float: left;">Type:&nbsp;
+				<span ng-bind-html="match.model.concept | typeaheadHighlight:query"></span>
+			</span>
+		</div>
+		<div>
+			<span style="font-size: 12px; float: right;" ng-if="match.model.scientific_name">Scientific Name:&nbsp;
+				<span ng-bind-html="match.model.scientific_name | typeaheadHighlight:query"></span>
+			</span>
+		</div>
+	</div>
+</a>

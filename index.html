@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en" ng-app="refvis">
+<head>
+  <meta charset="UTF-8">
+  <base href="/refvis/">
+    <title>RefVis Version 0.1</title>
+    <link rel="stylesheet" type="text/css" href="http://fast.fonts.com/cssapi/0ad75cee-12a6-49a0-a922-c4ecad41ec44.css" media="all" />
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/refvis-white-light-blue.css" type="text/css" media="screen, projection">
+    <link rel="stylesheet" href="bower_components/animate.css/animate.min.css" type="text/css" media="screen, projection">
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="angular/bower_components/lodash/dist/lodash.min.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.9/angular.min.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.9/angular-sanitize.min.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.9/angular-route.min.js"></script>
+    <script type="text/javascript" src="angular/bower_components/restangular/dist/restangular.min.js"></script>
+    <script src="js/base64.js"></script>
+
+    <script type="text/javascript" src="jquery/jquery-slideList.js"></script>
+
+    <script type="text/javascript" src="miniscroll.min.js"></script>
+    <script type="text/javascript" src="angular/ng-infinite-scroll.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.12.0/ui-bootstrap-tpls.js"></script>
+
+    <script src="js/refvis.js"></script>
+    <script src="js/scripts.js"></script>
+    <script type="text/javascript">
+      var BASE_URL = 'http://168.202.54.89:8080/refpub-web/rest/';
+      var SOLR_BASE_URL = 'http://168.202.54.89:8090/solr/RefPub/select';
+    </script>
+
+</head>
+  <body>
+    <div id="refvis-loading" class="refvis-loading-hidden">
+      <img id="refvis-loading-image" class="refvis-loading-image" src="img/please_wait.gif" alt="Loading..." />
+    </div>
+    <div class="navbar-fixed-top top">
+    <iframe id="banner" src="banner/" width="100%" height="75" border="0" frameborder="0" scrolling="no"></iframe>
+    </div>
+    </div>
+      <div id="main">
+        <div class="navbar-fixed-side-left left">
+          <div class="menu-icon" id="fao-home">
+            <div class="refvis-menu-icon-single refvis-menu-list" onClick="expandCollapseMainMenu('#main-navigation', 'main-navigation');"></div>
+          </div>
+          <div style="bottom: 0; position: absolute; height: 140px; width: 100%;">
+            <div class="refvis-swap-style" style="background: #fff;" onClick="swapStyles('css/refvis-white.css', 2);"></div>
+            <div class="refvis-swap-style" style="background: #5e93ff;" onClick="swapStyles('css/refvis-white-light-blue.css', 2);"></div>
+            <div class="refvis-swap-style" style="background: #1a1a1a;" onClick="swapStyles('css/refvis.css', 2);"></div>
+          </div>
+        </div>
+
+        <div id="sidebar">
+                <div id="leftTopPan">
+                    <div id="searchtextwrapper" ng-controller="TypeaheadCtrl">
+                      <div style="float:right; width: 30%;">
+                        <div class="searchBar" ng-controller="TypeaheadCtrl">
+                          <form>
+                                   <input  type="search" 
+                                    ng-model="typeaheadSelected" 
+                                    placeholder="Search" 
+                                    typeahead="name as obj.name for obj in autosuggestion($viewValue)" 
+                                    typeahead-loading="loadingLocations" 
+                                    class="form-control"
+                                    id="refvis-fulltext-bar"
+                                    typeahead-template-url="views/autosuggest-tmpl.html"
+                                    typeahead-on-select="onSelect($item, $model, $label)"
+                                    ng-keypress="triggerFullTextQuery($event);">
+                          </form>
+                        </div>
+                      </div>
+                        
+                    </div>
+                </div>
+        
+                <div id="sidebarP"></div></div>
+        <div class="refvis_main main-navigation" id="main-navigation">
+          <div class="refvis_main_tree" ng-controller="ConceptList" ng-cloak>
+            <ul id="refvis_mainNavigation">
+              <li class="slider-main parent" ng-repeat="concept in concepts" on-finish-render > 
+                <span class="slider-main-span notactive">{{concept.name}}</span>
+                <ul class="">
+                  <li class="slider-sub" id='{{concept.href_uuid}}'>
+                    <a href="list/{{concept.href}}" ng-click="clickCallback('#main-navigation', 'main-navigation', concept.href_uuid);" >List</a>
+                  </li>
+                  <li class="slider-sub" ng-show="concept.sub.group" id="{{concept.group_href_uuid}}">
+                    <a href="group/{{concept.group_href}}" ng-click="clickCallback('#main-navigation', 'main-navigation', concept.group_href_uuid)" >Groups</a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="view-animate-container">
+          <div ng-view class="view-animate">
+              
+          </div>
+        </div>
+      </div>
+      <div class="navbar-fixed-bottom bottom" style="width: 100%; text-align: center;">
+        <div class="fao-copyright" style="display: inline-block;">
+          <a href="http://www.fao.org/contact-us/terms/en/" target="_blank" title="FAO Copyright">
+            © FAO, <script>document.write(new Date().getFullYear())</script>
+          </a>
+        </div>
+      </div>
+    </div>
+</html>

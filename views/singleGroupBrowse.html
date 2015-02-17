@@ -1,0 +1,19 @@
+
+<div class="refvis-browse-results" id="refvis-browse-results">
+	<div class="refvis-group-title" ng-if="title" style="height: 30px; font-weight: bold;"><span>{{title}}</span></div>
+	<div>
+		<div class="refvis_group_tree">
+		<ul  id="refvis_groupNavigation">
+    		<li ng-repeat="group in groups">
+			    <span 	class="list-container-title refvis-group-title" 
+			    		ng-if="group.vals.name.en.length > 0" 
+			    		href="javascript:void(0);" 
+			    		class="list-container-title" 
+			    		ng-click="clicked(group.href, $event, group.uuid)" 
+			    		id="{{group.uuid}}">{{group.vals.name.en}}</span>
+			</li>
+		</ul>
+		</div>
+	</div>
+	<br /><br /><br /><br />
+</div>

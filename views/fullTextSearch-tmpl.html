@@ -1,0 +1,29 @@
+<div class="refvis-browse-results" id="refvis-browse-results">
+	<div>
+		<div class="list-container" ng-if="norecordsfound">No Records found</div>
+		<div ng-repeat="concept in concepts">
+			<div ng-if="concept.vals.name.en.length > 0">
+				<div class="list-container" ng-if="concept.vals.name.en.length > 0">
+					<a href="{{concept.href}}" class="list-container-title">{{concept.vals.name.en}}</a>
+				</div>
+				<div class="list-container-sub">
+					<span class="list-container-label">Concept: {{concept.concept_type}} </span>
+				</div>
+				<div class="list-container-sub" ng-if="concept.vals.multilingualLongName.en.length > 0">
+					<span class="list-container-label">Long Name:</span> <a href="{{concept.href}}" class="list-container-value">{{concept.vals.multilingualLongName.en}}</a>
+				</div>
+				<div class="list-container-sub" ng-if="concept.vals.multilingualOfficialName.en.length > 0">
+					<span class="list-container-label">Official Name:</span> <a href="{{concept.href}}" class="list-container-value">{{concept.vals.multilingualOfficialName.en}}</a>
+				</div>
+				<div class="list-container-sub" ng-if="concept.vals.multilingualFullName.en.length > 0">
+					<span class="list-container-label">Full Name:</span> <a href="{{concept.href}}" class="list-container-value">{{concept.vals.multilingualFullName.en}}</a>
+				</div>
+				<div class="list-container-sub" ng-if="concept.vals.scientific_name.length > 0">
+					<span class="list-container-label">Scientific Name:</span> <a href="{{concept.href}}"class="list-container-value">{{concept.vals.scientific_name}}</a>
+				</div>
+				<hr class="divider">
+			</div>
+		</div>
+	</div>
+	<br /><br /><br /><br />
+</div>

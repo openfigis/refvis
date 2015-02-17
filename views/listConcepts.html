@@ -1,0 +1,25 @@
+<div class="refvis-browse-results" id="refvis-browse-results">
+	<div infinite-scroll='loadMore(nextLink)' infinite-scroll-distance='1'>
+		<div ng-repeat="concept in concepts">
+			<div ng-if="concept.vals.name.en.length > 0">
+				<div class="list-container" ng-if="concept.vals.name.en.length > 0">
+					<a href="concept/{{concept.href}}" class="list-container-title">{{concept.vals.name.en}}</a>
+				</div>
+				<div class="list-container-sub" ng-if="concept.vals.multilingualName.en.length > 0">
+					<span class="list-container-label">Name:</span> <strong>{{concept.vals.multilingualName.en}}</strong>
+				</div>
+				<div class="list-container-sub" ng-if="concept.vals.multilingualLongName.en.length > 0">
+					<span class="list-container-label">Long Name:</span> <strong>{{concept.vals.multilingualLongName.en}}</strong>
+				</div>
+				<div class="list-container-sub" ng-if="concept.vals.multilingualOfficialName.en.length > 0">
+					<span class="list-container-label">Official Name:</span> <strong>{{concept.vals.multilingualOfficialName.en}}</strong>
+				</div>
+				<div class="list-container-sub" ng-if="concept.vals.scientific_name.length > 0">
+					<span class="list-container-label">Scientific Name:</span> <strong>{{concept.vals.scientific_name}}</strong>
+				</div>
+				<hr class="divider">
+			</div>
+		</div>
+	</div>
+	<br /><br /><br /><br />
+</div>
